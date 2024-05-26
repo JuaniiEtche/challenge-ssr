@@ -24,7 +24,7 @@ public class LocalidadController extends SwaggerResponseCode {
 
     @GetMapping("/get-by-id")
     @Operation(summary = "Get Localidad by ID")
-    public ResponseEntity<LocalidadResponseDTO> getById(@Valid @RequestParam Long id) {
+    public ResponseEntity<LocalidadResponseDTO> getById(@RequestParam("id") Long id) {
         return ResponseEntity.ok(csvService.getLocalidadById(id));
     }
 
@@ -43,14 +43,14 @@ public class LocalidadController extends SwaggerResponseCode {
     @PutMapping("/update")
     @Operation(summary = "Update Localidad")
     public ResponseEntity<StatusResponseDTO> update(
-            @RequestParam Long id,
+            @RequestParam("id") Long id,
             @Valid @RequestBody LocalidadRequestDTO request) {
         return ResponseEntity.ok(csvService.updateLocalidad(id,request));
     }
 
     @DeleteMapping
     @Operation(summary = "Delete Localidad")
-    public ResponseEntity<StatusResponseDTO> delete(@RequestParam Long id) {
+    public ResponseEntity<StatusResponseDTO> delete(@RequestParam("id") Long id) {
         return ResponseEntity.ok(csvService.deleteLocalidad(id));
     }
 }

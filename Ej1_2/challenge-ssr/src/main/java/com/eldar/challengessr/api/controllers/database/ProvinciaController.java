@@ -26,7 +26,7 @@ public class ProvinciaController extends SwaggerResponseCode {
 
     @GetMapping("/get-by-id")
     @Operation(summary = "Get Provincia by ID")
-    public ResponseEntity<ProvinciaResponseDTO> getById(@RequestParam Long id) {
+    public ResponseEntity<ProvinciaResponseDTO> getById(@RequestParam("id") Long id) {
         return ResponseEntity.ok(provinciaService.getById(id));
     }
 
@@ -45,14 +45,14 @@ public class ProvinciaController extends SwaggerResponseCode {
     @PutMapping("/update")
     @Operation(summary = "Update Provincia")
     public ResponseEntity<StatusResponseDTO> update(
-            @RequestParam Long id
+            @RequestParam("id") Long id
             ,@Valid @RequestBody ProvinciaRequestDTO request) {
         return ResponseEntity.ok(provinciaService.update(id,request));
     }
 
     @DeleteMapping
     @Operation(summary = "Delete Provincia")
-    public ResponseEntity<StatusResponseDTO> delete(@RequestParam Long id) {
+    public ResponseEntity<StatusResponseDTO> delete(@RequestParam("id") Long id) {
         return ResponseEntity.ok(provinciaService.delete(id));
     }
 }

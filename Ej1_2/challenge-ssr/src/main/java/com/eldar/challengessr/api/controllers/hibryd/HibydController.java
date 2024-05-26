@@ -22,13 +22,13 @@ public class HibydController {
 
     @GetMapping("/localidad")
     @Operation(summary = "Get localidad by id")
-    public ResponseEntity<Map<String,Object>> getLocalidadById(@RequestParam Long id) throws InterruptedException {
+    public ResponseEntity<Map<String,Object>> getLocalidadById(@RequestParam("id") Long id) throws InterruptedException {
         return ResponseEntity.ok(hibrydService.getLocalidadById(id));
     }
 
     @GetMapping("/provincia")
     @Operation(summary = "Get provincia by id")
-    public ResponseEntity<Map<String,Object>> getProvinciaById(@RequestParam Long id) throws InterruptedException {
+    public ResponseEntity<Map<String,Object>> getProvinciaById(@RequestParam("id") Long id) throws InterruptedException {
         return ResponseEntity.ok(hibrydService.getProvinciaById(id));
     }
 }
