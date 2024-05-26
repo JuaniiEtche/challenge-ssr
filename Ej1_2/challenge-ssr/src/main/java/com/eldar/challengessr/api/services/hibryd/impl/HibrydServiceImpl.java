@@ -33,13 +33,13 @@ public class HibrydServiceImpl implements HibrydService {
         Instant start1 = Instant.now();
         Map<String, Object> dbResult = response1.join();
         Instant end1 = Instant.now();
-        long timeElapsed1 = Duration.between(start1, end1).toMillis();
+        long timeElapsed1 = Duration.between(start1, end1).toNanos();
         dbResult.put("timeElapsed", timeElapsed1);
 
         Instant start2 = Instant.now();
         Map<String, Object> csvResult = response2.join();
         Instant end2 = Instant.now();
-        long timeElapsed2 = Duration.between(start2, end2).toMillis();
+        long timeElapsed2 = Duration.between(start2, end2).toNanos();
         csvResult.put("timeElapsed", timeElapsed2);
 
         result.put("database", dbResult);
